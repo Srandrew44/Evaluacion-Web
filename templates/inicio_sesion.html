@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main class="text-light">
+    <div class="container">      
+      <div class="row">
+        <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
+            <div class="row">
+              <div class="col-lg-6 col-md-8">
+                <h1 class="mb-3 text-warning">Iniciar sesión</h1>
+                <p>No tienes una cuenta? <a href="{% url 'registro' %}" class="text-warning text-decoration-none">Regístrate</a></p>
+                <form action="{% url 'inicio_sesion' %}" method="POST">
+                  {% csrf_token %}
+                  {{ form }}
+                  <div class="login_footer form-group mb-5 pb-5">
+                    <button type="submit" class="btn btn-warning font-weight-bold mt-3" name="register">
+                      Ingresar
+                    </button>
+                  </div>
+                </form>                
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

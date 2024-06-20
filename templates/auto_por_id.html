@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="{{ auto.imagen.url }}" width="650" height="450" />
+      </div>
+      <div class="col">
+        <h3 class="fw-bold text-warning">{{ auto.marca }}</h3>
+        <div class=" pt-2">
+          <h4 class="text-secondary pb-3">Modelo: <span class="text-white">{{ auto.modelo }}</span></h4>
+          <h4 class="text-secondary pb-4">Descripción: <span class=" text-white lead">{{ auto.descripcion }}</span></h4>
+          <h4 class="text-secondary pb-3 pt-2">Precio: <span class=" text-white lead">{{ auto.precio }}</span></h4>
+          <button class="btn btn-outline-warning mt-3">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br>
+{% endblock %}
+

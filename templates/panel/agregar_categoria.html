@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <br/><br/><br/><br/><br/>
+  <br/><br/><br/><br/>
+  <main class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-8">
+                            <div class="login_wrap widget-taber-content bg-black">
+                                <div class="padding_eight_all bg-black">
+                                    <div class="heading_s1">
+                                        <h1 class="text-warning mb-2">Agregar Categoría</h1>
+                                    </div>
+                                    <form action="{% url 'agregar_categoria' %}" method="POST">
+                                      {% csrf_token %}
+                                      {{ form }}
+                                      <div class="pt-3">
+                                        <button type="submit" class="btn btn-outline-warning" name="register">
+                                          Guardar
+                                        </button>
+                                      </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </main>
+  <br/><br/><br/><br/><br/>
+  <br/><br/><br/><br/><br/>
+{% endblock %}

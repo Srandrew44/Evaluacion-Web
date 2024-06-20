@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <section id="carousel-imagenes">
+    {% comment %} QUIZAS SE PUEDE HACER CON UN FOR Y LOS NUMEROS AUMENTARLOS CON FORLOOP.COUNTER ??? {% endcomment %}
+    <div id="carouselContainer" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselContainer" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselContainer" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselContainer" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item c-item active" data-bs-interval="10000">
+          <img src="{% static 'imgs/carousel/img-1.jpg' %}" class="d-block w-100 c-img" alt="Foto de auto 1"/>
+          <div class="carousel-caption top-0 mt-4">
+            <p class="mt-5 fs-3 text-uppercase">Tu Sueño sobre Ruedas</p>
+            <h1 class="display-1 fw-bolder text-capitalize">comienza aquí</h1>
+            <button class="btn btn-warning px-4 py-2 mt-4 fs-5">
+              <a href="{% url 'catalogo' %}" style="color: black; text-decoration: none;">Revisar Catálogo</a>
+            </button>
+          </div>
+        </div>
+        <div class="carousel-item c-item">
+          <img src="{% static 'imgs/carousel/img-2.jpg' %}" class="d-block w-100 c-img" alt="Foto de auto 2"/>
+          <div class="carousel-caption top-0 mt-4">
+            <p class="mt-5 fs-3 text-uppercase">Tu Sueño sobre Ruedas</p>
+            <h1 class="display-1 fw-bolder text-capitalize">comienza aquí</h1>
+            <button type="button" class="btn btn-warning px-4 py-2 mt-4 fs-5">
+              <a href="{% url 'catalogo' %}" style="color: black; text-decoration: none;">Revisar Catálogo</a>
+            </button>
+          </div>
+        </div>
+        <div class="carousel-item c-item">
+          <img src="{% static 'imgs/carousel/img-3.webp' %}" class="d-block w-100 c-img" alt="Foto de auto 3"/>
+          <div class="carousel-caption top-0 mt-4">
+            <p class="mt-5 fs-3 text-uppercase">Tu Sueño sobre Ruedas</p>
+            <h1 class="display-1 fw-bolder text-capitalize">comienza aquí</h1>
+            <button class="btn btn-warning px-4 py-2 mt-4 fs-5">
+              <a href="{% url 'catalogo' %}" style="color: black; text-decoration: none;">Revisar Catálogo</a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselContainer" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselContainer" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <div class="container-fluid mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for auto in autos %}  
+      <div class="col">
+        <div class="card h-100 bg-transparent text-white border border-top-0 border-end-0 border-start-0 rounded-1 border-warning-subtle border-opacity-75">
+          <img src="{{ auto.imagen.url }}" class="card-img-top rounded" alt="...">
+          <div class="card-body">
+            <h5 class="card-title position-absolute border-bottom border-warning">{{ auto }}</h5> 
+            <h6 class="card-title float-end text-secondary">Categoría: <a href="{% url 'categoria_auto' auto.categoria.id %}" class="text-white text-decoration-none border border-top-0 border-end-0 border-start-0 rounded-0 border-warning-subtle border-opacity-50">{{ auto.categoria }}</a></h6>
+            <p class="card-text float-end">{{ auto.descripcion_corta }}</p>
+          </div>
+          <a href="{% url 'get_auto' auto.id %}" class="ms-3 mb-1"><button class="btn btn-outline-warning float-end border boder-0 border-black">Ver más...</button></a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+{% endblock %}

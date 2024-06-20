@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+  <main class="text-light">
+    <div class="container">      
+      <div class="row">
+        <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
+            <div class="row">
+              <div class="col-lg-6 col-md-8">
+                <h1 class="mb-3 text-warning">Editar Vehículo</h1>
+                <form action="{% url 'editar_vehiculo' vehiculo.id %}" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form | crispy }}
+                  <div class="login_footer form-group mb-5 pb-5">
+                    <button type="submit" class="btn btn-warning font-weight-bold mt-3" name="register">
+                      Actualizar
+                    </button>
+                  </div>
+                </form>                
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

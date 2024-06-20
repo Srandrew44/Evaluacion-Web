@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3">
+        <h3 class="text-warning mb-3">Categorías</h3>
+        {% include 'include/lista_categorias.html' %}
+      </div>
+      <div class="col">
+        <div class="container mt-4">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for auto in autos %}  
+            <div class="col">
+              <div class="card h-100 bg-transparent text-white border border-top-0 border-end-0 border-start-0 rounded-1 border-warning-subtle border-opacity-75">
+                <img src="{{ auto.imagen.url }}" class="card-img-top rounded" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title position-absolute border-bottom border-warning"><a href="#" class="text-decoration-none text-white">{{ auto }}</a></h5> 
+                  <h6 class="card-title float-end text-secondary">Categoría: <a href="{% url 'categoria_auto' auto.categoria.id %}" class="text-white text-decoration-none border border-top-0 border-end-0 border-start-0 rounded-0 border-warning-subtle border-opacity-50">{{ auto.categoria }}</a></h6>
+                  <p class="card-text float-end">{{ auto.descripcion_corta }}</p>
+                </div>
+                <a href="{% url 'get_auto' auto.id %}" class="ms-3 mb-1"><button class="btn btn-outline-warning float-end border boder-0 border-black">Ver más...</button></a>
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

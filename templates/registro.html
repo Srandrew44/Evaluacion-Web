@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main class="text-light">
+    <div class="container">      
+      <div class="row">
+        <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
+            <div class="row">
+              <div class="col-lg-6 col-md-8">
+                <h1 class="mb-3 text-warning">Registrar usuarios</h1>
+                <p>Ya tienes una cuenta? <a href="{% url 'inicio_sesion' %}" class="text-warning text-decoration-none">Iniciar Sesión</a></p>
+                <form action="{% url 'registro' %}" method="POST">
+                  {% csrf_token %}
+                  {{ form }}
+                  <div class="form-group mb-5">
+                    <button type="submit" class="btn btn-warning font-weight-bold mt-3" name="register">
+                      Enviar &amp; Registrar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
