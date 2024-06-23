@@ -24,7 +24,7 @@
                 {{ user }}
               </span>
               <ul class="dropdown-menu bg-black">
-                {% if user.is_superuser%}
+                {% if user.is_superuser %}
                 <li><button class="dropdown-item"><a href="{% url 'categorias' %}" class="text-white text-decoration-none">Categorías</a></button></li>
                 <li><button class="dropdown-item"><a href="{% url 'vehiculos' %}" class="text-white text-decoration-none">Vehículos</a></button></li>
                 {% endif %}
