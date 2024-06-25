@@ -88,14 +88,18 @@
     {% comment %} MODAL {% endcomment %}
     <div class="offcanvas offcanvas-end bg-black text-white" tabindex="-1" id="offcanvasRight">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title text-warning" id="offcanvasRightLabel">Lista de items</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        <h5 class="offcanvas-title text-warning" id="offcanvasRightLabel">Carrito de compras</h5>
+        <button type="button" style="background-color: #ffc107; color: white;" class="btn-close" data-bs-dismiss="offcanvas"></button>
       </div>
       <div class="offcanvas-body">
-        ...
+        <ul id="CarritoDeCompra">
+        </ul>
       </div>
+      <button id="btnEliminarTodo" onclick="eliminarTodo()" style="background-color: #ffc107; color: rgb(0, 0, 0);">Eliminar Todo</button>
+      <h2>Total: $<span id="total"></span></h2>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>

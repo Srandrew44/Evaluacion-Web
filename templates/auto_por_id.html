@@ -12,7 +12,7 @@
           <h4 class="text-secondary pb-3">Modelo: <span class="text-white">{{ auto.modelo }}</span></h4>
           <h4 class="text-secondary pb-4">Descripción: <span class=" text-white lead">{{ auto.descripcion }}</span></h4>
           <h4 class="text-secondary pb-3 pt-2">Precio: <span class=" text-white lead">{{ auto.precio }}</span></h4>
-          <button class="btn btn-outline-warning mt-3">Agregar al carrito</button>
+          <button class="btn btn-outline-warning mt-3" onclick="agregarAuto('{{auto.id}}','{{auto.modelo}}','{{auto.precio}}')">Agregar al carrito</button>
         </div>
       </div>
     </div>
